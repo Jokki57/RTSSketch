@@ -5,7 +5,7 @@ namespace Game
 {
 	public class Unit : Actor
 	{
-        internal Vector3 force = new Vector3();
+        internal Vector3 velocity = new Vector3();
         internal Quaternion RotationDriveMode = new Quaternion();
 
         public Unit(OpposingSide side) : base(side)
@@ -22,6 +22,10 @@ namespace Game
 		void Update ()
 		{
 			
+		}
+        
+        void OnTriggerExit(Collider other) {
+			Destroy(this.gameObject);   
 		}
 	}
 }

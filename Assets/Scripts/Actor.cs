@@ -16,6 +16,12 @@ namespace Game
 			opposingSide = side;
 		}
 
+        public void SetOpposingSide(OpposingSide side)
+        {
+            opposingSide = side;
+            SetColorByOpposingSide();
+        }
+
 		protected void SetColorByOpposingSide ()
 		{
 			MeshRenderer meshRenderer;
@@ -25,7 +31,7 @@ namespace Game
 					meshRenderer.materials [0].color = new Color (0.69f, 0.25f, 0.17f);
 				} else if (opposingSide == OpposingSide.Ally) {
 					meshRenderer.materials [0].color = new Color (0.17f, 0.69f, 0.47f);
-				}
+		    	}
 			}
 		}
 	}

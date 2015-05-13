@@ -6,13 +6,18 @@ namespace Game
 {
     public class Factory : Actor
     {
-        private const int TIME_TO_SPAWN = 10;
+        private const int TIME_TO_SPAWN = 5;
 
         public GameObject unit;
+        public Transform spawnTransform;
 
         private List<GameObject> units;
         private float currentTimeToSpawn;
         private Vector3 unitPosition;
+
+		public Factory() {}
+
+		public Factory(OpposingSide side) : base(side) {}
 
         // Use this for initialization
         void Start ()
@@ -36,12 +41,17 @@ namespace Game
             {
                 units = new List<GameObject>();
             }
-            GameObject newUnit = (GameObject) Instantiate(unit, this.gameObject.transform.position, this.gameObject.transform.rotation);
+            GameObject newUnit = (GameObject) Instantiate(unit, spawnTransform.position, spawnTransform.rotation);
             units.Add(newUnit);
+            Unit unitScript = newUnit.gameObject.GetComponent<Unit>();
+            if (unitScript != null)
+            {
+                unitScript.SetOpposingSide(opposingSide);
+            }
             Rigidbody rigidBody = newUnit.gameObject.GetComponent<Rigidbody>();
             if (rigidBody != null)
             {
-                rigidBody.AddForce(new Vector3(-5,0,0));
+                rigidBody.velocity = new Vector3(-10, 0, 0);
             }
         }
 
