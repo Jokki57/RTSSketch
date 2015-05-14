@@ -1,6 +1,8 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
+Project("{F8B66773-7D4A-0100-0D4A-506AF0F155A5}") = "RTSSketch", "Assembly-CSharp-firstpass-vs.csproj", "{5AB24E1F-561D-0258-A70D-0EA72949FA5F}"
+EndProject
 Project("{F8B66773-7D4A-0100-0D4A-506AF0F155A5}") = "RTSSketch", "Assembly-CSharp-vs.csproj", "{7386F59B-33B8-BCB5-EEFF-6C4A0C0E2B85}"
 EndProject
 Project("{F8B66773-7D4A-0100-0D4A-506AF0F155A5}") = "RTSSketch", "Assembly-CSharp-Editor-vs.csproj", "{056BB30A-1049-F1BD-E44C-579DA9CC56D8}"
@@ -11,6 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5AB24E1F-561D-0258-A70D-0EA72949FA5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AB24E1F-561D-0258-A70D-0EA72949FA5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AB24E1F-561D-0258-A70D-0EA72949FA5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AB24E1F-561D-0258-A70D-0EA72949FA5F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7386F59B-33B8-BCB5-EEFF-6C4A0C0E2B85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7386F59B-33B8-BCB5-EEFF-6C4A0C0E2B85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7386F59B-33B8-BCB5-EEFF-6C4A0C0E2B85}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -23,10 +29,11 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-			GlobalSection(MonoDevelopProperties) = preSolution
+						GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
+		$1.TabsToSpaces = False
 		$1.inheritsSet = VisualStudio
 		$1.inheritsScope = text/plain
 		$1.scope = text/x-csharp
@@ -56,6 +63,9 @@ Global
 		$3.inheritsSet = VisualStudio
 		$3.inheritsScope = text/plain
 		$3.scope = text/plain
+		$0.StandardHeader = $4
+		$4.Text = 
+		$4.IncludeInNewFiles = True
 	EndGlobalSection
 
 EndGlobal
