@@ -10,7 +10,7 @@ namespace Game
 
 		public GameObject factory;
 
-		private Quaternion zeroQuat = new Quaternion();
+		private Quaternion spawnQuaternion = new Quaternion();
 
 		// Use this for initialization
 		void Start ()
@@ -43,7 +43,7 @@ namespace Game
 			{
 				Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 				position.y = 0;
-				GameObject currentFactory = (GameObject)Instantiate(factory, position, zeroQuat);
+				GameObject currentFactory = (GameObject)Instantiate(factory, position, spawnQuaternion);
 				currentFactory.GetComponent<Factory>().SetOpposingSide(OpposingSide.Ally);
 				allFactories [OpposingSide.Ally].Add(this.gameObject);
 			} 
@@ -51,7 +51,7 @@ namespace Game
 			{
 				Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 				position.y = 0;
-				GameObject currentFactory = (GameObject)Instantiate(factory, position, zeroQuat);
+				GameObject currentFactory = (GameObject)Instantiate(factory, position, spawnQuaternion);
 				currentFactory.GetComponent<Factory>().SetOpposingSide(OpposingSide.Enemy);
 				allFactories [OpposingSide.Enemy].Add(this.gameObject);
 			}

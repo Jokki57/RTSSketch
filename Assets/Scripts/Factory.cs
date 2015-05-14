@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 namespace Game
@@ -28,12 +29,14 @@ namespace Game
 		internal override void Start ()
         {
 			base.Start();
+			health = 5;
             SetColorByOpposingSide ();
         }
     
         // Update is called once per frame
-        void Update ()
+        internal override void Update ()
         {
+			base.Update();
             currentTimeToSpawn += Time.deltaTime;
             if (currentTimeToSpawn >= TIME_TO_SPAWN)
             {
@@ -62,7 +65,7 @@ namespace Game
 			Rigidbody rigidBody = newUnit.gameObject.GetComponent<Rigidbody>();
             if (rigidBody != null)
             {
-                rigidBody.velocity = Vector3.right * Unit.speed;
+                rigidBody.AddForce(Vector3.right * 100);
             }
         }
 

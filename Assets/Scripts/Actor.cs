@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 using UnityStandardAssets.Effects;
 
@@ -8,7 +9,7 @@ namespace Game
 	{
 		public OpposingSide opposingSide;
 		public GameObject explosion;
-		//public Text
+		public Text text;
 
 		protected float health;
 		protected ActorTypes type;		
@@ -34,6 +35,11 @@ namespace Game
 			else if (this is Unit)
 				type = ActorTypes.Unit;
 			SetTag();
+		}
+
+		internal virtual void Update()
+		{
+			text.text = health.ToString();
 		}
 
         public void SetOpposingSide(OpposingSide side)
@@ -76,7 +82,7 @@ namespace Game
 			}
 		}
 
-		public void SetDamage(float damage)
+		public virtual void SetDamage(float damage)
 		{
 			health -= damage;
 			if (health <= 0)

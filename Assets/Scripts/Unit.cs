@@ -34,11 +34,13 @@ namespace Game
 			targetTypes.Add((ActorTypes)random.Next(0, 2));
 			base.Start();
 			SetColorByOpposingSide();
+			health = 2;
 		}
 	
 		// Update is called once per frame
-		void Update ()
+		internal override void Update ()
 		{
+			base.Update();
 			if (target != null)
 			{
 				Vector3 direction = (target.transform.position - this.gameObject.transform.position).normalized;
@@ -49,7 +51,8 @@ namespace Game
         void OnTriggerExit(Collider other) {
 			if (other.tag == TagNames.BOUND)
 			{
-				parentFactory.Units.Remove(this.gameObject);
+				if (parentFactory)
+					parentFactory.Units.Remove(this.gameObject);
 				GameController.allUnits[opposingSide].Remove(this.gameObject);
 				Destroy(this.gameObject);
 			}
